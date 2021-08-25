@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+
+    <context:property-placeholder location="classpath:sports.properties"/>
+
+    <bean id="myFortuneService"
+          class="com.synergyfolks.company.HappyFortuneService">
+    </bean>
+
+
+    <bean id="myCoach"
+          class="com.synergyfolks.company.TrackCoach">
+        <constructor-arg ref="myFortuneService"/> <!--constructor injection -->
+    </bean>
+
+    <bean id="myCricketCoach"
+          class="com.synergyfolks.company.CricketCoach">
+        <property name="fortuneService" ref="myFortuneService"> <!--Setter injection -->
+        </property>
+<!--        <property name="emailAddress" value="ram@gmail.com"></property>-->
+<!--        <property name="team" value="CSK"></property>-->
+        <property name="emailAddress" value="${foo.email}"></property>
+        <property name="team" value="${foo.team}"></property>
+    </bean>
+
+
+
+
+</beans>
+
+
+
+
+
