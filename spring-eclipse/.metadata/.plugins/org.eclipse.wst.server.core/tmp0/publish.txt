@@ -1,0 +1,6 @@
+#Tomcat publish data
+#Fri Aug 13 13:01:07 IST 2021
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\sonar\\sona\\springboot\\eclipse-workspace\\web-customer-tracker1\\WebContent\\WEB-INF\\lib\\spring-web-5.3.9.jar=WEB-INF/lib/spring-web-5.3.9.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\sonar\\sona\\springboot\\eclipse-workspace\\web-customer-tracker-aop\\WebContent\\WEB-INF\\lib\\spring-web-5.3.9.jar=WEB-INF/lib/spring-web-5.3.9.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\sonar\\sona\\springboot\\eclipse-workspace\\web-customer-tracker1\\WebContent\\WEB-INF\\lib\\spring-web-5.3.9-sources.jar=WEB-INF/lib/spring-web-5.3.9-sources.jar
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\sonar\\sona\\springboot\\eclipse-workspace\\web-customer-tracker-aop\\WebContent\\WEB-INF\\lib\\spring-web-5.3.9-sources.jar=WEB-INF/lib/spring-web-5.3.9-sources.jar
