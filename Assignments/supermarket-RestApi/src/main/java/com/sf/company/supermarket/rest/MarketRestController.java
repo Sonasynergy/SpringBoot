@@ -49,7 +49,7 @@ public class MarketRestController {
                 results.add(d);
             }
         }
-        Thread.sleep(8000);
+//        Thread.sleep(8000);
         return results;
     }
 

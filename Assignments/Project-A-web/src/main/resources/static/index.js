@@ -21,12 +21,15 @@
 //  });
 //});
 
+
+
 function loadDoc() {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = function() {
     document.getElementById("demo").innerHTML = this.responseText;
   }
   xhttp.open("GET", "http://localhost:8080/api/markets",true);
+      xmlhttp.setRequestHeader("Access-Control-Allow-Origin: *");
   xhttp.send();
 }
 

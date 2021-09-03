@@ -33,7 +33,7 @@ public class MarketRestController {
 
     @GetMapping("/markets")
     public List<Market> findAll() throws InterruptedException {
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
         return marketService.findAll();
     }
 
