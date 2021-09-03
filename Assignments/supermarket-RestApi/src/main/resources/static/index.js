@@ -2,7 +2,7 @@ function loadDoc() {
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.onload = function() {
       const myObj = JSON.parse(this.responseText);
-      let text = "<table border='1'>"
+      let text = "<table border='1' style=color:red>"
       text+="<tr><th>"+ "Id" + "</th><th>" + "StoreName" + "</th><th>" + "Owner" + "</th><th>" + "Address" + "</th>";
       for (let x in myObj) {
         text += "<tr><td>" + myObj[x].id +"</td><td>"+ myObj[x].storeName +"</td><td>" + myObj[x].storeOwner.storeOwner
