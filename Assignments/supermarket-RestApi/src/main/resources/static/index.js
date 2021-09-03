@@ -12,7 +12,7 @@ function loadDoc() {
       document.getElementById("demo").innerHTML = text;
     }
     xmlhttp.open("GET", "http://localhost:8080/api/markets");
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send();
 }
 
