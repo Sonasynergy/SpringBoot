@@ -8,6 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -28,30 +29,55 @@ public class StudentControllerTest {
         lists=studentRestController.findAll();
         assertNotNull(lists);
         assertFalse(lists.isEmpty());
-        assertEquals(2,lists.size());
+        assertEquals(8,lists.size());
+    }
+
+    @Test
+    public void findAllWithNull() throws InterruptedException {
+        List<Student> lists=studentRestController.findAll();
+        assertNull(lists);
+        assertTrue(lists.isEmpty());
     }
 
     @Test
     public void findById() throws InterruptedException {
-        int value=3;
+        int value=4;
         Student student= (Student) studentRestController.findById(value);
-        assertNotNull(student.getId());
+        assertNotNull(student);
         assertEquals(value,student.getId());
     }
 
     @Test
-    public void save(){
-        Student student=new Student("priya","ram","priya@gmail.com");
-        Student students=null;
-        students=studentRestController.addMarket(student);
-        assertEquals(student,students);
+    public void findByIdWithNull() throws InterruptedException {
+        Student student=null;
+        student=studentRestController.findById(17);
+        assertNull(student);
     }
 
     @Test
-//    @DisplayName("Enter your firstName")
+    public void saveStudent() throws InterruptedException {
+        Student student=new Student("abc","def","abc@gmail.com");
+        Student students=null;
+        students=studentRestController.addMarket(student);
+        assertEquals(student,students);
+        Student email=studentRestController.findEmail(student.getEmail());
+        assertEquals(student.getEmail(),email.getEmail());
+    }
+
+    @Test
+    public void findNull(){
+        Student student=null;
+        assertThrows(NullPointerException.class,()->{
+            studentRestController.addMarket(student);
+        });
+    }
+
+
+    @Test
+    @DisplayName("Enter your firstName")
     public void firstNameWithNull(){
-        Student student=new Student(null,"ram","Ram@gmail.com");
-        assertThrows(RuntimeException.class,()->{
+        Student student=new Student(null,"eee","yyy");
+        assertThrows(DataIntegrityViolationException.class,()->{
             studentRestController.addMarket(student);
         });
     }
@@ -60,7 +86,7 @@ public class StudentControllerTest {
     @DisplayName("Enter your lastName")
     public void lastNameWithNull(){
         Student student=new Student("ram",null,"Ram@gmail.com");
-        assertThrows(RuntimeException.class,()->{
+        assertThrows(DataIntegrityViolationException.class,()->{
             studentRestController.addMarket(student);
         });
     }
@@ -69,7 +95,7 @@ public class StudentControllerTest {
     @DisplayName("Enter your email")
     public void emailWithNull(){
         Student student=new Student("shekar","ram",null);
-        assertThrows(RuntimeException.class,()->{
+        assertThrows(DataIntegrityViolationException.class,()->{
             studentRestController.addMarket(student);
         });
     }
@@ -77,10 +103,9 @@ public class StudentControllerTest {
     @Test
     public void deleteById(){
         int value=3;
-        String students=null;
-        students=studentRestController.deleteMarket(value);
-        assertEquals("Deleted id 3",students);
+        String actualStudents=null;
+        actualStudents=studentRestController.deleteStudent(value);
+        assertEquals("Deleted id 3",actualStudents);
     }
-
 
 }

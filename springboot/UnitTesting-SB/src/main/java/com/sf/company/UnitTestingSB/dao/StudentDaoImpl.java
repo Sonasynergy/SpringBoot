@@ -27,11 +27,12 @@ public class StudentDaoImpl implements StudentDao{
     }
 
     @Override
-    public List<String> findName() {
+    public Student findEmail(String email) {
         Session currentSession = entityManager.unwrap(Session.class);
-        NativeQuery res=currentSession.createSQLQuery("select email from Student");
-        List<String> results=res.getResultList();
-        return results;
+        Query<Student> theQuery = currentSession.createQuery("from Student where email=:emailId",Student.class);
+        theQuery.setParameter("emailId",email);
+        Student student =theQuery.getSingleResult();;
+        return student;
     }
 
     @Override

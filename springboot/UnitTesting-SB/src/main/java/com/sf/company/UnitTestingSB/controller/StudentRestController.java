@@ -32,13 +32,13 @@ public class StudentRestController {
     }
 
     @GetMapping("/students/name")
-    public List<String> findName() throws InterruptedException {
-        return studentService.findName();
+    public Student findEmail(String email) throws InterruptedException {
+        return studentService.findEmail(email);
     }
 
     @PostMapping("/students")
     public Student addMarket(@RequestBody Student thestudent) {
-        thestudent.setId(0);
+//        thestudent.setId(0);
         studentService.save(thestudent);
         return thestudent;
     }
@@ -50,7 +50,7 @@ public class StudentRestController {
     }
 
     @DeleteMapping("/students/{studentId}")
-    public String deleteMarket(@PathVariable int studentId) {
+    public String deleteStudent(@PathVariable int studentId) {
         Student tempmarket = studentService.findById(studentId);
         if (tempmarket == null) {
             throw new RuntimeException("student id not found - " + studentId);

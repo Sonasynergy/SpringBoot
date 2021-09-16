@@ -7,9 +7,9 @@ import java.util.List;
 public interface StudentService {
     public List<Student> findAll();
 
-    public List<String> findName();
+    public Student findEmail(String email);
 
-    public Student findByName(String name);
+//    public Student findByName(String name);
 
     public Student findById(int theId);
 

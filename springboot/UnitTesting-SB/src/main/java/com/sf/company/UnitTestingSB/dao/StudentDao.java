@@ -8,7 +8,7 @@ public interface StudentDao {
 
     public List<Student> findAll();
 
-    public List<String> findName();
+    public Student findEmail(String email);
 
     public Student findByName(String name);
 

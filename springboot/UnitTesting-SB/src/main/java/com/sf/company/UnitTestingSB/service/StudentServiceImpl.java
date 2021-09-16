@@ -27,14 +27,8 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     @Transactional
-    public List<String> findName() {
-        return studentDao.findName();
-    }
-
-    @Override
-    @Transactional
-    public Student findByName(String theName) {
-        return studentDao.findByName(theName);
+    public Student findEmail(String email) {
+        return studentDao.findEmail(email);
     }
 
     @Override
